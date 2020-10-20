@@ -422,12 +422,12 @@ header.hero .hero-heading {
 }
 
 /* 404 View  */
-#notfound {
+#error404 {
   position: relative;
   height: 100vh;
 }
 
-#notfound .notfound {
+#error404 .error404 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -436,19 +436,19 @@ header.hero .hero-heading {
           transform: translate(-50%, -50%);
 }
 
-.notfound {
+.error404 {
   max-width: 520px;
   width: 100%;
   line-height: 1.4;
   text-align: center;
 }
 
-.notfound .notfound-404 {
+.error404 .error-404 {
   position: relative;
   height: 240px;
 }
 
-.notfound .notfound-404 h1 {
+.error404 .error-404 h1 {
   font-family: 'Montserrat', sans-serif;
   position: absolute;
   left: 50%;
@@ -465,11 +465,11 @@ header.hero .hero-heading {
   margin-left: -20px;
 }
 
-.notfound .notfound-404 h1>span {
+.error404 .error-404 h1>span {
   text-shadow: -8px 0px 0px #fff;
 }
 
-.notfound .notfound-404 h3 {
+.error404 .error-404 h3 {
   font-family: 'Cabin', sans-serif;
   position: relative;
   font-size: 16px;
@@ -481,7 +481,7 @@ header.hero .hero-heading {
   padding-left: 6px;
 }
 
-.notfound h2 {
+.error404 h2 {
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -506,24 +506,24 @@ header.hero .hero-heading {
 }
 
 @media only screen and (max-width: 767px) {
-  .notfound .notfound-404 {
+  .error404 .error-404 {
     height: 200px;
   }
-  .notfound .notfound-404 h1 {
+  .error404 .error-404 h1 {
     font-size: 200px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .notfound .notfound-404 {
+  .error404 .error-404 {
     height: 162px;
   }
-  .notfound .notfound-404 h1 {
+  .error404 .error-404 h1 {
     font-size: 162px;
     height: 150px;
     line-height: 162px;
   }
-  .notfound h2 {
+  .error404 h2 {
     font-size: 16px;
   }
 }
