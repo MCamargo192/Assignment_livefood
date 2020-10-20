@@ -31,32 +31,32 @@
                                             <input type="text" id="firstName" name="firstName" class="form-control"
                                                 placeholder="First Name" value="{{form.firstName}}">
                                             <label for="firstName" class="text-muted">First Name</label>
-                                            {{#if emptyData.firstName }}
-                                            <div class="alert alert-danger">{{emptyData.firstName.msg}}</div>
+                                            {{#if empty.firstName }}
+                                            <div class="alert alert-danger">{{empty.firstName.msg}}</div>
                                             {{/if}}
                                         </div>
                                         <div class="form-label-group">
                                             <input type="text" id="lastName" name="lastName" class="form-control"
                                                 placeholder="Last Name" value="{{form.lastName}}">
                                             <label for="lastName" class="text-muted">Last Name</label>
-                                            {{#if emptyData.lastName }}
-                                            <div class="alert alert-danger">{{emptyData.lastName.msg}}</div>
+                                            {{#if empty.lastName }}
+                                            <div class="alert alert-danger">{{empty.lastName.msg}}</div>
                                             {{/if}}
                                         </div>
                                         <div class="form-label-group">
                                             <input type="email" id="email" name="email" class="form-control"
                                                 autocomplete="email" placeholder="Email" value="{{form.email}}">
                                             <label for="email" class="text-muted">Email</label>
-                                            {{#if emptyData.email }}
-                                            <div class="alert alert-danger">{{emptyData.email.msg}}</div>
+                                            {{#if empty.email }}
+                                            <div class="alert alert-danger">{{empty.email.msg}}</div>
                                             {{/if}}
                                         </div>
                                         <div class="form-label-group">
                                             <input type="password" id="password" name="password" class="form-control"
                                                 placeholder="Password" value="{{form.password}}">
                                             <label for="password" class="text-muted">Password</label>
-                                            {{#if emptyData.password }}
-                                            <div class="alert alert-danger">{{emptyData.password.msg}}</div>
+                                            {{#if empty.password }}
+                                            <div class="alert alert-danger">{{empty.password.msg}}</div>
                                             {{/if}}
                                         </div>
                                         <button
