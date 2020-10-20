@@ -8,7 +8,7 @@
 *
 * Online (Heroku, https://...) Link: ___________________________________________________
 *
-* GitHub or Bitbucket repo Link: ___________________________________________________
+* GitHub or Bitbucket repo Link: https://github.com/MCamargo192/Assingment_livefood.git
 *
 ********************************************************************************/
 
