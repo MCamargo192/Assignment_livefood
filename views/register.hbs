@@ -1,0 +1,74 @@
+<!-- Register Section -->
+<section class="page-section">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image" id="register_bgimage"></div>
+                <div class="col-md-8 col-lg-6">
+                    <div class="sign_form d-flex align-items-center py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 col-lg-8 mx-auto">
+                                    <h3 class="sign_form-heading mb-4 text-center text-uppercase">Create Account
+                                    </h3>
+                                    <form name="registerForm" action="/register" id="registerForm" method="POST">
+                                        <div>
+                                            <div class="sign_form-item">
+                                                <a class="btn btn-dark btn-social mx-2" href=""><i
+                                                        class="fab fa-facebook-f "></i></i></a>
+                                                <a class="btn btn-dark btn-social mx-2" href=""><i
+                                                        class="fab fa-google"></i></a>
+                                                <a class="btn btn-dark btn-social mx-2" href=""><i
+                                                        class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-dark btn-social mx-2" href=""><i
+                                                        class="fab fa-linkedin-in"></i></a>
+                                            </div>
+                                            <div class="text-center">
+                                                <p class="text-muted text-center">OR</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="text" id="firstName" name="firstName" class="form-control"
+                                                placeholder="First Name" value="{{form.firstName}}">
+                                            <label for="firstName" class="text-muted">First Name</label>
+                                            {{#if emptyData.firstName }}
+                                            <div class="alert alert-danger">{{emptyData.firstName.msg}}</div>
+                                            {{/if}}
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="text" id="lastName" name="lastName" class="form-control"
+                                                placeholder="Last Name" value="{{form.lastName}}">
+                                            <label for="lastName" class="text-muted">Last Name</label>
+                                            {{#if emptyData.lastName }}
+                                            <div class="alert alert-danger">{{emptyData.lastName.msg}}</div>
+                                            {{/if}}
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="email" id="email" name="email" class="form-control"
+                                                autocomplete="email" placeholder="Email" value="{{form.email}}">
+                                            <label for="email" class="text-muted">Email</label>
+                                            {{#if emptyData.email }}
+                                            <div class="alert alert-danger">{{emptyData.email.msg}}</div>
+                                            {{/if}}
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                placeholder="Password" value="{{form.password}}">
+                                            <label for="password" class="text-muted">Password</label>
+                                            {{#if emptyData.password }}
+                                            <div class="alert alert-danger">{{emptyData.password.msg}}</div>
+                                            {{/if}}
+                                        </div>
+                                        <button
+                                            class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                            type="submit">Sign up</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

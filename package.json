@@ -1,0 +1,19 @@
+{
+  "name": "web322_assignment_livefitfood",
+  "version": "1.0.0",
+  "description": "Live Fit webapp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Marcelo Camargo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mailgen": "^2.0.14",
+    "nodemailer": "^6.4.14"
+  }
+}
