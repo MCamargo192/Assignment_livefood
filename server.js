@@ -6,7 +6,7 @@
 *
 * Name: Marcelo Augusto Caixeta Camargo Student ID: 143739191 Date: October 20th, 2020.
 *
-* Online (Heroku, https://...) Link: ___________________________________________________
+* Online (Heroku, https://...) Link: https://git.heroku.com/livefood.git
 *
 * GitHub or Bitbucket repo Link: https://github.com/MCamargo192/Assingment_livefood.git
 *
