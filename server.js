@@ -8,7 +8,7 @@
 *
 * Online (Heroku, https://...) Link: https://git.heroku.com/livefood.git
 *
-* GitHub or Bitbucket repo Link: https://github.com/MCamargo192/Assingment_livefood.git
+* GitHub or Bitbucket repo Link: https://github.com/MCamargo192/Assignment_livefood.git
 *
 ********************************************************************************/
 
