@@ -63,8 +63,8 @@ module.exports.registerValid = (req, res) => {
         return passwordFilter.test(password);
     }
 
-    if (!registerForm.firstName) emptyData.firstName = { msg: "Enter a valid name!" };
-    if (!registerForm.lastName) emptyData.lastName = { msg: "Enter a valid name!" };
+    if (!registerForm.firstName.trim()) emptyData.firstName = { msg: "Enter a valid name!" };
+    if (!registerForm.lastName.trim()) emptyData.lastName = { msg: "Enter a valid name!" };
     if (!emailValidation(registerForm.email)) emptyData.email = { msg: "Enter a valid email!" };
     if (!passwordValidation(registerForm.password)) emptyData.password = { msg: "Enter a 6 to 12 characters password. Must have letters and numbers only!" };
 
