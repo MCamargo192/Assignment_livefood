@@ -59,13 +59,34 @@ app.get("/login", (req, res) => { res.render('login', { layout: 'main' }); });
 
 // Get Validation module
 const valid = require("./validation");
+const mail = require("./email");
 
-app.post("/login", (req, res) => { valid.loginValid(req,res); });
+app.post("/login", (req, res) => { 
+    let validation = valid.loginValid(req);
+    validation.valid ? res.render('login', { emptyData: validation.empty, form: validation.form, layout: 'main' }) : false;
+ });
 
 // Register page route
 app.get("/register", (req, res) => { res.render('register', { layout: 'main' }); });
 
-app.post("/register", (req, res) => { valid.registerValid(req,res); });
+app.post("/register", (req, res) => { 
+    let validation = valid.registerValid(req);
+
+    if(validation.valid){
+        res.render('register', {
+            empty: validation.empty,
+            form: validation.form,
+            layout: 'main'
+        });
+    } else {
+       let mailer = mail.mailSender(req);
+
+       // Send registration email and load dashboard.
+       mailer.transp.sendMail(mailer.mailOption).then(() => {
+           return res.render('dashboard', { form: mailer.form, layout: 'main' });
+       }).catch(() => res.status(400).json({ message: 'Something went wrong' }));
+    }
+});
 
 app.use((req, res) => { res.render('404', { layout: false }); });
 
