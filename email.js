@@ -5,7 +5,7 @@ module.exports.mailSender = req => {
 
     const EMAIL = "livefit.web322@gmail.com";
     const PASSWORD = "livefit2020";
-    const MAIN_URL = "http://localhost:8080/";
+    const MAIN_URL = "https://livefood.herokuapp.com/";
 
     var transporter = nodemailer.createTransport({
         host: 'smtp.googlemail.com', // Gmail Host
