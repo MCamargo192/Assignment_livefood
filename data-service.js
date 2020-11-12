@@ -115,7 +115,7 @@ var packages = [
     {
         id: 4,
         src: '/img/vegan_cover.jpg',
-        name: 'Vegan',
+        title: 'Vegan',
         description: 'Here is a DELICIOUS Vegan Meals. All recipes are gluten-free & low-calorie.',
         synopsis: 'This package includes a variety of plant based meals including veggie chicken, veggie beef, veggie ground beef, tofu, a variety of fresh vegetables, seasonings, sauces and carbohydrates including rice, yams, pasta, butternut ravioli, potatoes and quinoa.',
         price: 134.99,
