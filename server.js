@@ -38,12 +38,21 @@ var onHttpStart = () => { console.log("Express http server listening on: " + HTT
 //Getting CSS and Images from public folder
 app.use(express.static('public'));
 
+//Getting data from data-service.js
+const dataBase = require('./data-service');
+
 //Route handlers
 // Home page route
-app.get("/", (req, res) => { res.render('home', { layout: 'main' }); });
+app.get("/", (req, res) => { res.render('home', { 
+    data : dataBase.getAllMeals(),
+    layout: 'main' 
+}); });
 
 // Packages page route
-app.get("/packages", (req, res) => { res.render('packages', { layout: 'main' }); });
+app.get("/packages", (req, res) => { res.render('packages', { 
+    data : dataBase.getAllPackages(),
+    layout: 'main' 
+}); });
 
 // Login page route
 app.get("/login", (req, res) => { res.render('login', { layout: 'main' }); });

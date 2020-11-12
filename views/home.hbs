@@ -50,68 +50,28 @@
             <h2 class="section-heading text-uppercase">Check our Menu</h2>
         </div>
         <div class="row">
+            {{#each data}}
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="meals-item">
-                    <a class="meals-link" data-toggle="modal" href="#mealsModal1">
+                    <a class="meals-link" data-toggle="modal" href="#mealsModal{{id}}">
                         <div class="meals-hover">
                             <div class="meals-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
                         </div>
-                        <img class="img-fluid" src="/img/TurkeyWhiteChili.jpg" alt="" />
+                        <img class="img-fluid" src="{{src}}" alt="{{title}}" />
                     </a>
                     <div class="meals-caption">
-                        <div class="meals-caption-heading">Turkey White Chili</div>
-                        <div class="meals-caption-subheading text-muted"><strong>$15.90</strong></div>
+                        <div class="meals-caption-heading">{{title}}</div>
+                        <div class="meals-caption-subheading text-muted"><strong>${{price}}</strong></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="meals-item">
-                    <a class="meals-link" data-toggle="modal" href="#mealsModal2">
-                        <div class="meals-hover">
-                            <div class="meals-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="/img/VeganSpaghetti.jpg" alt="" />
-                    </a>
-                    <div class="meals-caption">
-                        <div class="meals-caption-heading">Vegan Spaghetti and Meatballs</div>
-                        <div class="meals-caption-subheading text-muted"><strong>$12.50</strong></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="meals-item">
-                    <a class="meals-link" data-toggle="modal" href="#mealsModal3">
-                        <div class="meals-hover">
-                            <div class="meals-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="/img/ChipotleLimeShrimp.jpg" alt="" />
-                    </a>
-                    <div class="meals-caption">
-                        <div class="meals-caption-heading">Sheet-Pan Chipotle-Lime Shrimp Bake</div>
-                        <div class="meals-caption-subheading text-muted"><strong>$17.10</strong></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-                <div class="meals-item">
-                    <a class="meals-link" data-toggle="modal" href="#mealsModal4">
-                        <div class="meals-hover">
-                            <div class="meals-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="/img/SalmonMeal.jpg" alt="" />
-                    </a>
-                    <div class="meals-caption">
-                        <div class="meals-caption-heading">Spicy Cajun Salmon & Garlicky Veg</div>
-                        <div class="meals-caption-subheading text-muted"><strong>$19.80</strong></div>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 </section>
 <!-- Meals Modals-->
-<!-- Modal 1-->
-<div class="meals-modal modal fade" id="mealsModal1" tabindex="-1" role="dialog" aria-hidden="true">
+{{#each data}}
+<div class="meals-modal modal fade" id="mealsModal{{id}}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
@@ -120,16 +80,15 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Meal Details -->
-                            <h2 class="text-uppercase">Turkey White Chili</h2>
-                            <img class="img-fluid d-block mx-auto" src="/img/TurkeyWhiteChili.jpg" alt="" />
-                            <h3 class="text-uppercase">$15.90</h3>
+                            <h2 class="text-uppercase">{{title}}</h2>
+                            <img class="img-fluid d-block mx-auto" src="{{src}}" alt="{{title}}" />
+                            <h3 class="text-uppercase">${{price}}</h3>
                             <ul class="list-inline">
-                                <li><strong>Ingredients:</strong> Canola Oil, Chopped Onion, Garlic Cloves, Cumin,
-                                    Turkey Breast</li>
-                                <li><strong>Calories:</strong> 537</li>
-                                <li><strong>Protein:</strong> 39.7</li>
-                                <li><strong>Carbs:</strong> 81.7</li>
-                                <li><strong>Fats:</strong> 7.1</li>
+                                <li><strong>Ingredients:</strong> {{ingredients}}</li>
+                                <li><strong>Calories:</strong> {{values.calories}}</li>
+                                <li><strong>Protein:</strong> {{values.protein}}</li>
+                                <li><strong>Carbs:</strong> {{values.carbs}}</li>
+                                <li><strong>Fats:</strong> {{values.fat}}</li>
                             </ul>
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
@@ -139,105 +98,8 @@
                     </div>
                 </div>
             </div>
+           
         </div>
     </div>
 </div>
-<!-- Modal 2-->
-<div class="meals-modal modal fade" id="mealsModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Meal Details -->
-                            <h2 class="text-uppercase">Vegan Spaghetti and Meatballs</h2>
-                            <img class="img-fluid d-block mx-auto" src="/img/VeganSpaghetti.jpg" alt="" />
-                            <h3 class="text-uppercase">$12.50</h3>
-                            <ul class="list-inline">
-                                <li><strong>Ingredients:</strong> Marinara Sauce, Kidney Beans, Gluten-free quick
-                                    oats, Soy sauce, Mustard, Onion Powder, Garlic Powder, Oregano, Chili Powder
-                                </li>
-                                <li><strong>Calories:</strong> 325</li>
-                                <li><strong>Protein:</strong> 32</li>
-                                <li><strong>Carbs:</strong> 41</li>
-                                <li><strong>Fats:</strong> 2.4</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times mr-1"></i>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal 3-->
-<div class="meals-modal modal fade" id="mealsModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Meal Details -->
-                            <h2 class="text-uppercase">Butter Chicken Wrap with Rice</h2>
-                            <img class="img-fluid d-block mx-auto" src="/img/ChipotleLimeShrimp.jpg" alt="" />
-                            <h3 class="text-uppercase">$17.10</h3>
-                            <ul class="list-inline">
-                                <li><strong>Ingredients:</strong> Baby Red Potatoes, Olive Oil, Sea Salt, Limes,
-                                    Chipotle pepper, Asparagus, Broccoli, Shrimp, Cilantro'</li>
-                                <li><strong>Calories:</strong> 549</li>
-                                <li><strong>Protein:</strong> 40</li>
-                                <li><strong>Carbs:</strong> 79</li>
-                                <li><strong>Fats:</strong> 7.1</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times mr-1"></i>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal 4-->
-<div class="meals-modal modal fade" id="mealsModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Meal Details -->
-                            <h2 class="text-uppercase">Spicy Cajun Salmon & Garlicky Veg</h2>
-                            <img class="img-fluid d-block mx-auto"
-                                src="/img/Butternut-Squash-Penne-with-Cashews-and-Cashew-Cheese.jpg" alt="" />
-                            <h3 class="text-uppercase">$19.80</h3>
-                            <ul class="list-inline">
-                                <li><strong>Ingredients:</strong> Salmon Fillets, Lemon, Garlic, Cajun, Olive Oil,
-                                    Sea Salt, Black Pepper, Couscous, Brocolli, Courgettes
-                                </li>
-                                <li><strong>Calories:</strong> 631</li>
-                                <li><strong>Protein:</strong> 13</li>
-                                <li><strong>Carbs:</strong> 88</li>
-                                <li><strong>Fats:</strong> 22.0</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times mr-1"></i>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{/each}}

@@ -4,7 +4,7 @@ var meals = [
         id: 1,
         src: '/img/TurkeyWhiteChili.jpg',
         title: 'Turkey White Chili',
-        price: 15.90,
+        price: 15.99,
         ingredients: 'Canola Oil, Chopped Onion, Garlic Cloves, Cumin, Turkey Breast',
         values: {
             calories: 537,
@@ -19,7 +19,7 @@ var meals = [
         id: 2,
         src: '/img/VeganSpaghetti.jpg',
         title: 'Vegan Spaghetti and Meatballs',
-        price: 12.50,
+        price: 12.99,
         ingredients: 'Marinara Sauce, Kidney Beans, Gluten-free quick oats, Soy sauce, Mustard, Onion Powder, Garlic Powder, Oregano, Chili Powder',
         values: {
             calories: 325,
@@ -34,7 +34,7 @@ var meals = [
         id: 3,
         src: '/img/ChipotleLimeShrimp.jpg',
         title: 'Sheet-Pan Chipotle-Lime Shrimp Bake',
-        price: 17.10,
+        price: 17.99,
         ingredients: 'Baby Red Potatoes, Olive Oil, Sea Salt, Limes, Chipotle pepper, Asparagus, Broccoli, Shrimp, Cilantro',
         values: {
             calories: 549,
@@ -49,7 +49,7 @@ var meals = [
         id: 4,
         src: '/img/SalmonMeal.jpg',
         title: 'Spicy Cajun Salmon & Garlicky Veg',
-        price: 19.80,
+        price: 19.99,
         ingredients: 'Salmon Fillets, Lemon, Garlic, Cajun, Olive Oil, Sea Salt, Black Pepper, Couscous, Brocolli, Courgettes',
         values: {
             calories: 631,
@@ -70,7 +70,7 @@ var packages = [
         title: "Weight Loss",
         description: 'Not feelin\' green salad tonight? These flavor-packed dinners will leave you satisfied and on track for weight loss.',
         synopsis: 'This package comes with a variety of meals for lunch and dinner. Each meal has been properly portion controlled to help you lose weight!<br><br>The longer you stick with it, the better the results will get.',
-        price: 145.00,
+        price: 145.99,
         numberMeals: 15,
         meals: {
             first: '/img/weightloss_1.jpg',
@@ -86,7 +86,7 @@ var packages = [
         title: 'Muscle Gain',
         description: 'Whether you’re just starting out in the world of fitness, or you’re a seasoned pro, try these tasty meals for muscle-building and fat-loss.',
         synopsis: 'Designed to help you gain lean muscle mass. Larger portions of protein and carbohydrates to help hit your health and fitness goals.<br><br>Build muscle, improve your health and have more energy!',
-        price: 183.95,
+        price: 183.99,
         numberMeals: 20,
         meals: {
             first: '/img/muscle_1.jpg',
@@ -102,7 +102,7 @@ var packages = [
         title: 'Gluten-Free',
         description: 'Following a gluten-free diet shouldn\'t mean eating plain chicken and boring salads every night.',
         synopsis: 'The Gluten-Free Package comes with a variety of our best selling meals.<br><br>Each meal in this package contains 1 cup of Carbohydrates, 1 cup of Vegetables and 5oz of meat protein',
-        price: 117.00,
+        price: 117.99,
         numberMeals: 18,
         meals: {
             first: '/img/glutenfree_1.jpg',
@@ -118,7 +118,7 @@ var packages = [
         name: 'Vegan',
         description: 'Here is a DELICIOUS Vegan Meals. All recipes are gluten-free & low-calorie.',
         synopsis: 'This package includes a variety of plant based meals including veggie chicken, veggie beef, veggie ground beef, tofu, a variety of fresh vegetables, seasonings, sauces and carbohydrates including rice, yams, pasta, butternut ravioli, potatoes and quinoa.',
-        price: 134.40,
+        price: 134.99,
         numberMeals: 22,
         meals: {
             first: '/img/vegan_1.jpg',
