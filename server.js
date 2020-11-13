@@ -59,7 +59,7 @@ app.get("/login", (req, res) => { res.render('login', { layout: 'main' }); });
 
 // Get Validation module
 const valid = require("./validation");
-const mail = require("./email");
+const mail = require("./email-generator");
 
 app.post("/login", (req, res) => { 
     let validation = valid.loginValid(req);
