@@ -44,7 +44,7 @@
     </div>
 </section>
 <!-- Meals Section -->
-<section class="page-section" id="meals">
+{{!-- <section class="page-section" id="meals">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Check our Menu</h2>
@@ -53,7 +53,7 @@
             {{#each data}}
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="meals-item">
-                    <a class="meals-link" data-toggle="modal" href="#mealsModal{{id}}">
+                    <a class="meals-link" data-toggle="modal" href="#mealsModal{{_id}}">
                         <div class="meals-hover">
                             <div class="meals-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
                         </div>
@@ -71,7 +71,7 @@
 </section>
 <!-- Meals Modals-->
 {{#each data}}
-<div class="meals-modal modal fade" id="mealsModal{{id}}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="meals-modal modal fade" id="mealsModal{{_id}}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
@@ -99,6 +99,62 @@
                 </div>
             </div>
            
+        </div>
+    </div>
+</div>
+{{/each}} --}}
+
+<section class="page-section" id="package">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Check out some of our packages
+            </h2>
+        </div>
+        <div class="row">
+            {{#each data}}
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="package-item">
+                    <a class="package-link" data-toggle="modal" href="#packageModal{{_id}}">
+                        <div class="package-hover">
+                            <div class="package-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="/img/{{src}}" alt="{{title}}" />
+                    </a>
+                    <div class="package-caption">
+                        <div class="package-caption-heading">{{title}}</div>
+                        <div class="package-caption-subheading text-muted">{{synopsis}}</div>
+                        <div class="package-caption-subheading"><strong>${{price}}</strong></div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- Package Modals-->
+{{#each data}}
+<div class="package-modal modal fade" id="packageModal{{_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Package Details -->
+                            <h2 class="text-uppercase">{{title}} Package</h2>
+                            <img class="img-fluid d-block mx-auto" src="/img/{{src}}" alt="{{title}}" />
+                            <p>{{description}}</p>
+                            <p>Package comes with <strong>{{numberMeals}}</strong> meals.</p>
+                            <h3 class="text-uppercase">${{price}}</h3>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

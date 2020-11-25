@@ -1,0 +1,53 @@
+<!-- Services-->
+<section class="page-section" id="package">
+    <div class="container">
+        <h3 class="sign_form-heading mb-4 text-center text-uppercase">New package</h3>
+        <form name="packageForm" action="/add-package" id="packageForm" method="POST" enctype="multipart/form-data">
+            <div class="form-label-group">
+                <label for="title" class="text-muted">Title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Title">
+            </div>
+            <div class="form-group form-group-textarea mb-md-0">
+                <label for="description" class="text-muted">Description</label>
+                <textarea type="text" id="description" name="description" class="form-control" required="required"
+                    placeholder="Description"></textarea>
+            </div>
+            <div class="form-label-group">
+                <label for="synopsis" class="text-muted">Synopsis</label>
+                <textarea type="text" id="synopsis" name="synopsis" class="form-control" required="required"
+                    placeholder="Synopsis"></textarea>
+            </div>
+            <div class="form-label-group">
+                <label for="price" class="text-muted">Price</label>
+                <input type="text" id="price" name="price" class="form-control" required="required" placeholder="Price">
+            </div>
+            <div class="form-label-group">
+                <label for="numberMeals" class="text-muted">Number of Meals</label>
+                <input type="text" id="numberMeals" name="numberMeals" class="form-control" required="required"
+                    placeholder="Number of Meals">
+            </div>
+            <div class="form-label-group">
+                <label for="isTopPackage" class="text-muted">Is this item a Top Package? </label>
+                <label class="text-muted" for="isTopPackage">
+                    <input type="radio" id="isTopPackage" name="isTopPackage" value="true" /> Yes
+                </label>
+                <label class="text-muted" for="isTopPackage">
+                    <input type="radio" id="isTopPackage" name="isTopPackage" value="false" checked /> No
+                </label>
+            </div>
+            <div class="form-label-group">
+                <label for="src" class="text-muted">Upload package cover photo</label>
+                <input type="file" id="src" name="src" class="form-control" accept=".jpg, .jpeg, .gif, .png"
+                    required="required">
+            </div>
+            <div class="text-muted">Allowed image formats: .jpeg, .jpg, .png and .gif</div>
+             <div><br></div>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-save mr-1"></i>
+                Save</button>
+            <button class="btn btn-primary" onclick='window.location.href="/dashboard"' type="button">
+                <i class="fas fa-times mr-1"></i>
+                Close
+            </button>
+        </form>
+    </div>
+</section>

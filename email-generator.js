@@ -2,10 +2,11 @@ module.exports.mailSender = req => {
     // Set mailsender module
     const nodemailer = require('nodemailer');
     const mailGen = require('mailgen');
+    require('dotenv').config();
 
-    const EMAIL = "livefit.web322@gmail.com";
-    const PASSWORD = "livefit2020";
-    const MAIN_URL = "https://livefood.herokuapp.com/";
+    const EMAIL = process.env.DB_EMAIL;
+    const PASSWORD = process.env.DB_PASSWORD;
+    const MAIN_URL = process.env.DB_MAIN_URL;
 
     var transporter = nodemailer.createTransport({
         host: 'smtp.googlemail.com', // Gmail Host
@@ -20,7 +21,7 @@ module.exports.mailSender = req => {
     var mailGenerator = new mailGen({
         theme: "default",
         product: {
-            name: "LiveFit",
+            name: "LiveFood",
             link: MAIN_URL
         }
     });
@@ -33,7 +34,7 @@ module.exports.mailSender = req => {
     var response = {
         body: {
             name: registerForm.firstName + " " + registerForm.lastName,
-            intro: ["Welcome to LiveFit!", "We're so happy you joined, and wanted to take a moment to say hello.", "Let's be fit with us!", "Have a great day!"],
+            intro: ["Welcome to LiveFood!", "We're so happy you joined, and wanted to take a moment to say hello.", "Let's be fit with us!", "Have a great day!"],
             signature: "Sincerely"
         }
     };
@@ -43,14 +44,13 @@ module.exports.mailSender = req => {
     var mailOptions = {
         from: EMAIL,
         to: req.body.email,
-        subject: 'Welcome to LiveFit!',
+        subject: 'Welcome to LiveFood!',
         html: mail
     };
 
     var sender = {
         transp : transporter,
-        mailOption: mailOptions,
-        form: registerForm
+        mailOption: mailOptions
     } 
 
     return sender;

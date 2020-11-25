@@ -370,25 +370,25 @@ header.hero .hero-heading {
   background-size: cover;
   background-position: center;
 }
-#login_bgimage{
-  background-image: url('/img/login_bg.jpg');
+#login_bgimage {
+  background-image: url("/img/login_bg.jpg");
 }
 .sign_form,
 .image {
   min-height: 61vh;
 }
 .sign_form-item {
-	margin-bottom: 1rem;
-	text-align: center;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 .sign_form-item .btn-social {
-    height: 2.5rem;
-    width: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border-radius: 100%;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 100%;
 }
 .sign_form-item .btn-social:hover {
   color: #fff;
@@ -397,17 +397,20 @@ header.hero .hero-heading {
 }
 
 /* Register View */
-#register_bgimage{
-  background-image: url('/img/register_bg.jpg');
+#register_bgimage {
+  background-image: url("/img/register_bg.jpg");
 }
 .form-control:focus {
   border-color: #ff85c2;
-  box-shadow: 0 0 0 .2rem rgba(199, 0, 99, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(199, 0, 99, 0.5);
 }
 
 /* Dashboard View */
-#dashboardHero {
-  background-image: url("/img/dashboard_bg.jpg");
+#userDashHero {
+  background-image: url("/img/dashboard_user_bg.jpg");
+}
+#clerkDashHero {
+  background-image: url("/img/dashboard_clerk_bg.jpg");
 }
 #dashHero {
   margin-bottom: 0;
@@ -421,6 +424,11 @@ header.hero .hero-heading {
   margin-bottom: 15px;
 }
 
+#dash_pack_btn {
+  align-items: center;
+  justify-content: center;
+}
+
 /* 404 View  */
 #error404 {
   position: relative;
@@ -432,8 +440,8 @@ header.hero .hero-heading {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .error404 {
@@ -449,13 +457,13 @@ header.hero .hero-heading {
 }
 
 .error404 .error-404 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 252px;
   font-weight: 900;
   margin: 0px;
@@ -465,12 +473,12 @@ header.hero .hero-heading {
   margin-left: -20px;
 }
 
-.error404 .error-404 h1>span {
+.error404 .error-404 h1 > span {
   text-shadow: -8px 0px 0px #fff;
 }
 
 .error404 .error-404 h3 {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   position: relative;
   font-size: 16px;
   font-weight: 700;
@@ -482,7 +490,7 @@ header.hero .hero-heading {
 }
 
 .error404 h2 {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
@@ -493,15 +501,15 @@ header.hero .hero-heading {
 
 #btn-404 {
   color: #fff;
-  background-color:  #000;
-  border-color:  #000;
+  background-color: #000;
+  border-color: #000;
 }
 
 #btn-404:focus,
 #btn-404.focus {
   color: #fff;
   background-color: #000;
-  border-color:  #000;
+  border-color: #000;
   box-shadow: 0 0 0 0.2rem rgba(23, 23, 23, 0.82);
 }
 

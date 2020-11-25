@@ -1,0 +1,89 @@
+<!-- Hero Section-->
+<header class="hero" id="clerkDashHero">
+    <div class="container">
+        <div class="hero-heading text-uppercase" id="dashHero">Hi, {{user.fname}} {{user.lname}}</div>
+    </div>
+</header>
+<!-- Services-->
+<section class="page-section" id="package">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Welcome to LiveFood!</h2>
+        </div>
+        <div class="row">
+            {{#each data}}
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="package-item">
+                    <a class="package-link" data-toggle="modal" href="#packageModal{{_id}}">
+                        <div class="package-hover">
+                            <div class="package-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="/img/{{src}}" alt="{{title}}" />
+                    </a>
+                    <div class="package-caption">
+                        <div class="package-caption-heading">{{title}}</div>
+                        {{!-- <div class="package-caption-subheading text-muted">{{description}}</div>
+                        <div class="package-caption-subheading"><strong>${{price}}</strong></div> --}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="package-item">
+                    <a class="package-link" href="/add-package">
+                        <div class="package-hover">
+                            <div class="package-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="/img/add-item.jpg" alt="" />
+                    </a>
+                    <div class="package-caption">
+                        <div class="package-caption-heading">Add new package</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Package Modals-->
+{{#each data}}
+<div class="package-modal modal fade" id="packageModal{{_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Package Details -->
+                            <h2 class="text-uppercase">{{title}} Package</h2>
+                            <img class="img-fluid d-block mx-auto" src="/img/{{src}}" alt="{{title}}" />
+                            <p>Image: <strong>/img/{{src}}</strong></p>
+                            <p>Description: <strong>{{description}}</strong></p>
+                            <p>Synopsis: <strong>{{synopsis}}</strong></p>
+                            <p>Number of Meals: <strong>{{numberMeals}}</strong>.</p>
+                            <p>Price: $<strong>{{price}}</strong></p>
+                            <p>Is a top package: <strong>{{isTopPackage}}</strong>.</p>
+                            <form action="/remove-package/{{_id}}&{{src}}" method="post">
+                            <button class="btn btn-primary" onclick='window.location.href="/update-package/{{_id}}"'
+                                type="button">
+                                <i class="fas fa-edit mr-1"></i>
+                                Edit
+                            </button>
+                            <button class="btn btn-primary" onclick='window.location.href="/remove-package/{{_id}}&{{src}}"'
+                                type="submit">
+                                <i class="fas fa-trash mr-1"></i>
+                                Remove
+                            </button>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                Close
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

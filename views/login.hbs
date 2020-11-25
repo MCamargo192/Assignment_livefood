@@ -47,7 +47,10 @@
                                         </div>
                                         <button
                                             class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                                            type="submit">Sign Up</button>
+                                            type="submit">Log In</button>
+                                            {{#if invalidLogin }}
+                                            <div class="alert alert-danger">{{invalidLogin}}</div>
+                                            {{/if}}
                                         <div class="text-center">
                                             <a class="small text-muted" href="#">Forgot your password?</a></div>
                                         <div class="text-center"><span class="small text-muted" href="#">Not a

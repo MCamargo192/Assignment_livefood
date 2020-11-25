@@ -1,9 +1,10 @@
 // Login validation
 module.exports.loginValid = req => {
+
     // Holder values
     var loginForm = req.body;
 
-    //Validation
+    // Validation
     var emptyData = {
         email: "",
         password: ""
@@ -50,7 +51,7 @@ module.exports.registerValid = req => {
 
     var errors = emptyData.firstName || emptyData.lastName || emptyData.email || emptyData.password
 
-    var validation = { 
+    var validation = {
         valid: errors,
         empty: emptyData,
         form: registerForm
