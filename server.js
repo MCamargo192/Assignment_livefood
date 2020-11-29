@@ -130,8 +130,12 @@ app.post("/login", (req, res) => {
                                 password: resultUser[0].password,
                                 email: resultUser[0].email,
                                 role: resultUser[0].role,
-                                newUser: false 
+                                newUser: false
                             };
+
+                            if (req.session.user.role == "User")
+                                req.session.user.cart = { items: [], subtotal: 0, tax: 0, shipping: 0, total: 0 }
+
                             res.redirect('dashboard');
                         }
                         else
@@ -163,8 +167,12 @@ app.post("/register", (req, res) => {
                         password: userMetaData.password,
                         email: userMetaData.email,
                         role: 'User',
-                        newUser: true 
+                        newUser: true
                     };
+
+                    if (req.session.user.role == "User")
+                        req.session.user.cart = { items: [], subtotal: 0, tax: 0, shipping: 0, total: 0 }
+
                     res.redirect('dashboard');
                 }).catch(err => console.log(err));
             })
@@ -195,6 +203,7 @@ app.get("/dashboard", ensureLogin, (req, res) => {
     }
 });
 
+// Add Package form
 app.get("/add-package", ensureLogin, (req, res) => { res.render("add-packages", { layout: 'users' }); });
 
 app.post("/add-package", upload.single("src"), (req, res) => {
@@ -213,6 +222,7 @@ app.post("/add-package", upload.single("src"), (req, res) => {
         .catch(err => { res.status(500).end(); });
 });
 
+// Update Package form
 app.get("/update-package/:_id", ensureLogin, (req, res) => {
     const id = req.params._id;
     dataClerk.getPackageById(id)
@@ -261,10 +271,10 @@ app.post("/update-package/:_id&:filename", upload.single("src"), (req, res) => {
         });
 });
 
+// Remove Package route
 app.post("/remove-package/:id&:filename", (req, res) => {
     const id = req.params.id;
     const file = req.params.filename;
-    console.log(file);
 
     dataClerk.deletePackage(id)
         .then(() => {
@@ -282,6 +292,93 @@ app.post("/remove-package/:id&:filename", (req, res) => {
         });
 });
 
+// User Cart view
+app.get("/cart", ensureLogin, (req, res) => { res.render("cart", { user: req.session.user, layout: 'users' }); });
+
+app.post("/add-to-cart", ensureLogin, (req, res) => {
+    let newItem = req.body
+    let found = false;
+    // Check if the item is already in the cart
+    req.session.user.cart.items.forEach(item => {
+        if (item.id === newItem.id) {
+            // If item is in the cart, update the quantity
+            item.quantity = parseInt(item.quantity) + parseInt(newItem.quantity);
+            found = true;
+        }
+    })
+    // If not add to it
+    if (!found)
+        req.session.user.cart.items.push(newItem);
+
+    req.session.user.cart.subtotal = 0;
+    req.session.user.cart.tax = 0;
+    req.session.user.cart.shipping = 0;
+    req.session.user.cart.total = 0;
+
+    req.session.user.cart.items.forEach(item => {
+        req.session.user.cart.subtotal = (parseFloat(req.session.user.cart.subtotal) + (parseFloat(item.price) * parseInt(item.quantity))).toFixed(2);
+    })
+    req.session.user.cart.tax = (parseFloat(req.session.user.cart.subtotal) * 0.13).toFixed(2);
+    req.session.user.cart.shipping = (parseFloat(req.session.user.cart.subtotal) * 0.05).toFixed(2);
+    req.session.user.cart.total = (parseFloat(req.session.user.cart.subtotal) + parseFloat(req.session.user.cart.tax) + parseFloat(req.session.user.cart.shipping)).toFixed(2);
+
+    res.redirect('/cart');
+});
+
+app.get("/remove-from-cart/:id", ensureLogin, (req, res) => {
+    let id = req.params.id;
+
+    for (let i = 0; i < req.session.user.cart.items.length; i++) {
+        if (req.session.user.cart.items[i].id === id)
+            req.session.user.cart.items.splice(i, 1);
+    }
+    // Recalculate total of the cart
+    req.session.user.cart.subtotal = 0;
+    req.session.user.cart.tax = 0;
+    req.session.user.cart.shipping = 0;
+    req.session.user.cart.total = 0;
+
+    if (req.session.user.cart.items.length > 0) {
+        req.session.user.cart.items.forEach(item => {
+            req.session.user.cart.subtotal = (parseFloat(req.session.user.cart.subtotal) + (parseFloat(item.price) * parseInt(item.quantity))).toFixed(2);
+        })
+        req.session.user.cart.tax = (parseFloat(req.session.user.cart.subtotal) * 0.13).toFixed(2);
+        req.session.user.cart.shipping = (parseFloat(req.session.user.cart.subtotal) * 0.05).toFixed(2);
+        req.session.user.cart.total = (parseFloat(req.session.user.cart.subtotal) + parseFloat(req.session.user.cart.tax) + parseFloat(req.session.user.cart.shipping)).toFixed(2);
+
+        res.redirect('/cart');
+    }
+    else
+        res.redirect('/dashboard');
+});
+
+app.post("/checkout", ensureLogin, (req, res) => {
+    let shippingInfo = {
+        fname: req.session.user.fname,
+        lname: req.session.user.lname,
+        email: req.session.user.email,
+        items: req.session.user.cart.items,
+        subtotal: req.session.user.cart.subtotal,
+        tax: req.session.user.cart.tax,
+        shipping: req.session.user.cart.shipping,
+        total: req.session.user.cart.total,
+        address: req.body.address,
+        apartment: req.body.apartment,
+        city: req.body.city,
+        province: req.body.province,
+        postalcode: req.body.postalcode,
+        instructions: req.body.instructions
+    }
+    let mailer = mail.checkoutMail(shippingInfo);
+    // Send registration email and load dashboard.
+    mailer.transp.sendMail(mailer.mailOption)
+        .then(() => {
+            req.session.user.cart = { items: [], subtotal: 0, tax: 0, shipping: 0, total: 0 };
+            let order = true;
+            res.render("user-dashboard", { user: req.session.user, shipping: order, layout: 'users' });
+        })
+        .catch(err => console.log(err));
+});
 
 app.use((req, res) => { res.render('404', { layout: false }); });
 

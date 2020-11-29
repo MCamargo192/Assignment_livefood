@@ -513,6 +513,73 @@ header.hero .hero-heading {
   box-shadow: 0 0 0 0.2rem rgba(23, 23, 23, 0.82);
 }
 
+/* Cart View */
+#userCartHero {
+  background-image: url("/img/cart_bg.jpg");
+}
+#cartHero {
+  margin-bottom: 0;
+}
+
+#cartQty {
+  text-align: center;
+  width: 40px;
+  height: 36px !important;
+  line-height: 0;
+  border-radius: 0;
+}
+
+#cart {
+  text-align: center;
+  padding: 5px;
+  margin: 2%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.updater {
+  width: 36px;
+  height: 36px !important;
+}
+
+.contactInfo {
+  padding-bottom: 0.5rem !important;
+}
+
+.contactInfo p {
+  margin-bottom: 0 !important;
+}
+
+.shipping{
+  padding-top: 0.5rem !important;
+}
+
+.form-label-group input {
+  margin-bottom: 0.5rem;
+}
+
+.cpcode {
+  width: 30%;
+}
+
+.block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shipform {
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
+}
+
 @media only screen and (max-width: 767px) {
   .error404 .error-404 {
     height: 200px;

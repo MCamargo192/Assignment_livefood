@@ -48,6 +48,38 @@
                             <p>{{description}}</p>
                             <p>Package comes with <strong>{{numberMeals}}</strong> meals.</p>
                             <h3 class="text-uppercase">${{price}}</h3>
+                            <div class="cart-quantity-box">
+                                <form id='cart' method='POST' action='/add-to-cart'>
+                                    <div class="form-row justify-content-center">
+                                        <div class="form-group mb-0">
+                                            <div class="input-group mx-auto mb-0">
+                                                <div class="number-input">
+                                                    <input type="hidden" name="id" value="{{_id}}">
+                                                    <input type="hidden" name="src" value="{{src}}">
+                                                    <input type="hidden" name="title" value="{{title}}">
+                                                    <input type="hidden" name="numberMeals" value="{{numberMeals}}">
+                                                    <input type="hidden" name="price" value="{{price}}">
+                                                    <button type="button"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                                        class="btn btn-primary updater"><i
+                                                            class="fa fa-minus mr-1"></i></button>
+                                                    <input class="quantity bg-light" id="cartQty" min="1"
+                                                        placeholder="1" name="quantity" value="1" type="number">
+                                                    <button type="button"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                        class="btn btn-primary updater plus"><i
+                                                            class="fa fa-plus mr-1"></i></button>
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <i class="fa fa-shopping-cart mr-1"></i>
+                                                        Add to cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
                                 Close

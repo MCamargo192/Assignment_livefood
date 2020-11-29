@@ -16,11 +16,25 @@
             <div class="dashboard-caption-subheading text-muted">Have a great day!</div>
             <div class="dashboard-caption-subheading text-muted">Sincerely,</div>
             <h4 class="section-heading">LiveFood</h3>
-            {{else}}
-            <h2 class="section-heading text-uppercase">Welcome back to LiveFood!</h2>
-            <div class="dashboard-caption-subheading text-muted">Check some of our meal packages, and let's be fit!</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/packages">view packages</a>
-            {{/if}}
+                {{else}}
+                {{#if shipping}}
+                <h2 class="section-heading text-uppercase">Thank you for your order!</h2>
+                <div class="dashboard-caption-subheading text-muted">Now is time to be fit! Enjoy your meals!
+                </div>
+                <div class="dashboard-caption-subheading text-muted">Check some of our meal packages, and let's be fit!
+                </div>
+                <a class="btn btn-primary text-uppercase js-scroll-trigger" href="/packages">view packages</a>
+                {{else}}
+                <h2 class="section-heading text-uppercase">Welcome back to LiveFood!</h2>
+                <div class="dashboard-caption-subheading text-muted">Check some of our meal packages, and let's be fit!
+                </div>
+                <a class="btn btn-primary text-uppercase js-scroll-trigger" href="/packages">view packages</a>
+                {{#if user.cart.items}}
+                <a class="btn btn-primary text-uppercase js-scroll-trigger" href="/cart"><i
+                        class="fa fa-shopping-cart mr-1"></i>my cart</a>
+                {{/if}}
+                {{/if}}
+                {{/if}}
         </div>
     </div>
 </section>
