@@ -11,34 +11,63 @@
             <h2 class="section-heading text-uppercase">Welcome to LiveFood!</h2>
         </div>
         <div class="row">
-            {{#each data}}
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="package-item">
-                    <a class="package-link" data-toggle="modal" href="#packageModal{{_id}}">
-                        <div class="package-hover">
-                            <div class="package-hover-content"><i class="fas fa-search-plus fa-2x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="/img/{{src}}" alt="{{title}}" />
-                    </a>
-                    <div class="package-caption">
-                        <div class="package-caption-heading">{{title}}</div>
-                        {{!-- <div class="package-caption-subheading text-muted">{{description}}</div>
-                        <div class="package-caption-subheading"><strong>${{price}}</strong></div> --}}
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="package-item">
-                    <a class="package-link" href="/add-package">
-                        <div class="package-hover">
-                            <div class="package-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="/img/add-item.jpg" alt="" />
-                    </a>
-                    <div class="package-caption">
-                        <div class="package-caption-heading">Add new package</div>
-                    </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="p-2 px-3 text-uppercase">Package</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Number of Meals</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Price</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Top Meal</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase"></div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    {{#each data}}
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="border-0">
+                                <div class="p-2">
+                                    <img src="/img/{{src}}" alt="{{title}}" width="70"
+                                        class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0 text-dark d-inline-block align-middle"><a class="text-muted"
+                                                data-toggle="modal" href="#packageModal{{_id}}">{{title}}</a></h5>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="border-0 align-middle"><strong>{{numberMeals}}</strong></td>
+                            <td class="border-0 align-middle"><strong>${{price}}</strong></td>
+                            <td class="border-0 align-middle text-uppercase"><strong>{{isTopPackage}}</strong></td>
+                            <td class="border-0 align-middle"><a href="/update-package/{{_id}}" class="text-dark"><i
+                                        class="fas fa-edit"></i></a></td>
+                            <td class="border-0 align-middle">
+                                <form action="/remove-package/{{_id}}&{{src}}" method="post">
+                                    <button class="btn text-dark"
+                                        onclick='window.location.href="/remove-package/{{_id}}&{{src}}"' type="submit">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                    {{/each}}
+                </table>
+                <div class="text-right"><span class="large text-muted">
+                        <h6><a class="text-muted" href="/add-package"><strong>Add new
+                                package</strong></a></span></h6>
                 </div>
             </div>
         </div>
@@ -64,20 +93,20 @@
                             <p>Price: $<strong>{{price}}</strong></p>
                             <p>Is a top package: <strong>{{isTopPackage}}</strong>.</p>
                             <form action="/remove-package/{{_id}}&{{src}}" method="post">
-                            <button class="btn btn-primary" onclick='window.location.href="/update-package/{{_id}}"'
-                                type="button">
-                                <i class="fas fa-edit mr-1"></i>
-                                Edit
-                            </button>
-                            <button class="btn btn-primary" onclick='window.location.href="/remove-package/{{_id}}&{{src}}"'
-                                type="submit">
-                                <i class="fas fa-trash mr-1"></i>
-                                Remove
-                            </button>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times mr-1"></i>
-                                Close
-                            </button>
+                                <button class="btn btn-primary" onclick='window.location.href="/update-package/{{_id}}"'
+                                    type="button">
+                                    <i class="fas fa-edit mr-1"></i>
+                                    Edit
+                                </button>
+                                <button class="btn btn-primary"
+                                    onclick='window.location.href="/remove-package/{{_id}}&{{src}}"' type="submit">
+                                    <i class="fas fa-trash mr-1"></i>
+                                    Remove
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </form>
                         </div>
                     </div>

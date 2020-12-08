@@ -4,7 +4,7 @@
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Marcelo Augusto Caixeta Camargo Student ID: 143739191 Date: November 29th, 2020.
+* Name: Marcelo Augusto Caixeta Camargo Student ID: 143739191 Date: December 08th, 2020.
 *
 * Online (Heroku, https://...) Link: https://livefood.herokuapp.com/
 *
@@ -247,7 +247,6 @@ app.post("/update-package/:_id&:filename", upload.single("src"), (req, res) => {
     const id = req.params._id;
     const file = req.params.filename
     const package = {
-        src: req.file.filename,
         title: req.body.title,
         description: req.body.description,
         synopsis: req.body.synopsis,
@@ -255,10 +254,12 @@ app.post("/update-package/:_id&:filename", upload.single("src"), (req, res) => {
         numberMeals: req.body.numberMeals,
         isTopPackage: req.body.isTopPackage
     }
-
-    fs.unlink(PHOTODIRECTORY + file, (err) => {
-        err ? console.log(err) : console.log("Removed file : " + file);
-    });
+    req.file ? package.src = req.file.filename : package.src = req.params.filename;
+    if (req.file != undefined) {
+        fs.unlink(PHOTODIRECTORY + file, (err) => {
+            err ? console.log(err) : console.log("Removed file : " + file);
+        });
+    }
 
     dataClerk.updatePackage(id, package)
         .then(() => {
